@@ -156,6 +156,6 @@ iframe {
   padding: 4rem;
 }
 
-#portfolio-video {
+.hidden {
   display: none;
 }
