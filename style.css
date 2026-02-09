@@ -1,0 +1,150 @@
+/* t pink */
+/* b6bd67 greeny yellow */
+/* 8abfb7 tealish */
+/* 7fa2be light blue */
+/* 282c34 dark blue */
+/* 1f1f1f darker blue */
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .main {
+    width: 700px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .main {
+    width: 500px;
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .main {
+    width: 300px;
+  }
+}
+
+main {
+  /* width: 500px;   This sets the width */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+div {
+  background-color: rgba(40, 44, 52,.5);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(3px);
+  /* padding: 0px 25px 25px 25px; */
+  margin: 25px;
+  border-style: dashed;
+  border-color: #7fa2be;
+  border-width: 3px;
+  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.07) ;
+}
+body {
+  background-color: #1f1f1f;
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, #353535 1px, transparent 1px),
+    linear-gradient(to bottom, #353535 1px, transparent 1px);
+}
+
+h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  color: #cd6667;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  color: #8abfb7;
+  text-align: center;
+}
+
+p {
+  color: white;
+  font-family: "Maitree", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.link-button{
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+  color: #b6bd67;
+  text-decoration: none;
+  border-style: dashed;
+  border-color: #b6bd67;
+  border-width: 2px;
+  background-color: #1f1f1f;
+  padding: 10px;
+  margin: 1rem;
+  display: block;
+  width: 100px;
+  transition: 0.5s;
+  box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.0) ;
+
+}
+
+.link-button:hover {
+  border-color: rgb(226, 232, 155);
+  background-color: rgb(31, 31, 31);
+  box-shadow: 1px 1px 10px 5px rgba(240, 246, 173, 0.2) ;
+}
+
+.social-links {
+  color: #b6bd67;
+  font-size: 20px;
+  transition: 0.2s;
+  text-align: center;
+  position: relative;
+  padding: 0;
+  margin: 1rem;
+}
+
+.social-links:hover{
+  color: rgb(240, 245, 186);
+}
+
+.list-inline > li {
+  display: inline-block;
+  /* padding: 0px 20px; */
+  /* margin-top: 20px; */
+}
+
+.profile-picture {
+  /* border-radius: 50%; */
+  margin: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 150px;
+  padding: 5px;
+  border-color: #b6bd67;
+  border-width: 2px;
+  border-style: dashed;
+  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.1) ;
+  border-radius: 10px;
+}
+
+
+
+ul {
+  text-align: center;
+  padding-inline-start: 0;
+}
