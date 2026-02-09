@@ -4,36 +4,40 @@
 /* 7fa2be light blue */
 /* 282c34 dark blue */
 /* 1f1f1f darker blue */
+
+main {
+  margin: 5% auto;
+  width:600px;
+}
+
 @media (max-width: 960px) {
   /* For a screen < 960px, this CSS will be read */
-  .main {
-    width: 700px;
+  main {
+    width: 600px;
   }
 }
 
 @media (max-width: 720px) {
   /* For a screen < 720px, this CSS will be read */
-  .main {
-    width: 500px;
+  main {
+    width: 450px;
   }
 }
 
 @media (max-width: 540px) {
   /* For a screen < 540px, this CSS will be read */
-  .main {
-    width: 300px;
+  main {
+    width: 400px;
   }
 }
 
-main {
-  /* width: 500px;   This sets the width */
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+@media (max-width: 440px) {
+  /* For a screen < 540px, this CSS will be read */
+  main {
+    width: 370px;
+  }
 }
+
 
 div {
   background-color: rgba(40, 44, 52,.5);
@@ -85,8 +89,16 @@ ul {
   padding-inline-start: 0;
 }
 
+li {
+  margin: 1rem;
+}
+
 iframe {
   display:block;
+  text-align: center;
+  margin: 0 auto;
+  width:100%;
+  height: 20rem;
 }
 
 .link-button{
@@ -101,7 +113,7 @@ iframe {
   border-width: 2px;
   background-color: #1f1f1f;
   padding: 10px;
-  margin: 1rem;
+  margin: 1rem auto;
   display: block;
   width: 100px;
   transition: 0.5s;
@@ -158,4 +170,13 @@ iframe {
 
 .hidden {
   display: none;
+}
+
+.center-text {
+  text-align: center;
+  font-size: 12px;
+}
+
+#portfolio-video {
+  width: 960;
 }
