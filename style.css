@@ -80,10 +80,20 @@ p {
   margin-right: 2rem;
 }
 
+ul {
+  text-align: center;
+  padding-inline-start: 0;
+}
+
+iframe {
+  display:block;
+}
+
 .link-button{
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-style: normal;
+  text-align: center;
   color: #b6bd67;
   text-decoration: none;
   border-style: dashed;
@@ -142,9 +152,10 @@ p {
   border-radius: 10px;
 }
 
+.extra-padding {
+  padding: 4rem;
+}
 
-
-ul {
-  text-align: center;
-  padding-inline-start: 0;
+#portfolio-video {
+  display: none;
 }

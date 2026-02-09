@@ -9,18 +9,29 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   <style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Maitree:wght@200;300;400;500;600;700&display=swap');</style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    function videoToggle() {
+      var x = document.getElementById("portfolio-video");
+      if (x.style.display !== "block") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
 </head>
 <body>
   <main>
     <div>
       <h1>Hello, I'm Sam!</h1>
-      <img src="images/square-pp.jpeg" width="100" class="profile-picture">
+      <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="profile picture">
       <h2>full_stack_dev</h2>
       <p>I am a full stack developer, recently switching from videography into this new and exciting career!</p>
       <ul class="list-inline">
-        <li><a href="https://www.youtube.com/watch?v=0dQ7-4x_m5k" class="link-button">projects</a></li>
-        <li><a href="https://www.youtube.com/watch?v=0dQ7-4x_m5k" class="link-button">video-work</a></li>
+        <li><a href="projects.html" class="link-button">projects</a></li>
+        <li><a onclick="videoToggle()" class="link-button">video-work</a></li>
       </ul>
+      <div id="portfolio-video"><iframe width="560" height="315" src="https://www.youtube.com/embed/0dQ7-4x_m5k?si=SEGb9SDzL1EhbHcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
     <div class=div-no-padding">
       <!-- <h3>Links</h3> -->
