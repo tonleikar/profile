@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sam-fgh</title>
   <link rel="icon" href="images/favicon.png?" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-  <style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Maitree:wght@200;300;400;500;600;700&display=swap');</style>
+  <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     function videoToggle() {
@@ -17,21 +15,29 @@
   </script>
 </head>
 <body>
-  <main>
-    <div>
-      <h1>Hello, I'm Sam!</h1>
-      <p class="center-text"><em>fred also pictured</em></p>
-      <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="profile picture">
-      <h2>full_stack_dev</h2>
-      <p>I am a full stack developer, recently switching from videography into this new and exciting career!</p>
-      <ul class="list-inline">
-        <li><a href="projects.html" class="link-button">projects</a></li>
-        <li><a onclick="videoToggle()" class="link-button">video-work</a></li>
-      </ul>
+  <div class="container">
+    <div class="header"></div>
+    <div class="content">
+      <div class="head">
+        <div>
+          <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="profile picture">
+          <p class="img-context" style="text-align: center;"><em>*fred also pictured</em></p>
+        </div>
+        <div class="main-text">
+          <h1>Hello, I'm Sam!</h1>
+          <h2>full_stack_dev</h2>
+        </div>
+      </div>
+      <p>I am a full stack developer, recently switching from videography into this new and exciting career! I combine my creativity and natural problem solving skills with my new tech building skills to come up with unique solutions.</p>
+      <div class="buttons">
+        <a href="projects.html" class="link-button">projects</a>
+        <a href="cv.html" class="link-button">cv</a>
+        <a onclick="videoToggle()" class="link-button">video-work</a>
+      </div>
+
       <div id="portfolio-video" class="hidden"><iframe src="https://www.youtube.com/embed/0dQ7-4x_m5k?si=SEGb9SDzL1EhbHcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
-    <div class=div-no-padding">
-      <!-- <h3>Links</h3> -->
+    <footer>
       <ul class="list-inline">
         <li>
           <a href="https://github.com/tonleikar" class="social-links">
@@ -49,8 +55,8 @@
           </a>
         </li>
       </ul>
-    </div>
-      <p class="center-text">© Samuel Gorman-Hailey 2026</p>
-  </main>
+    </footer>
+      <p class="center-text" style="text-align: center; font-size: 12px;">© Samuel Gorman-Hailey 2026</p>
+  </div>
 </body>
 </html>
