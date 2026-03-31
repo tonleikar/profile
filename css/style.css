@@ -69,3 +69,42 @@ iframe {
   margin-top: 2rem;
   width: 960;
 }
+
+@media (max-width: 750px) {
+  .container {
+    width: 90%;
+    min-width: 0;
+  }
+
+  .content {
+    padding: 24px;
+  }
+
+  .head {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .main-text {
+    padding-left: 0;
+  }
+
+  .img-context {
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .link-button {
+    display: block;
+    width: 80%;
+    box-sizing: border-box;
+  }
+}
