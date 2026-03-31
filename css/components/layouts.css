@@ -51,7 +51,11 @@ footer {
   border-width: 2px;
   border-style: dashed;
   border-radius: 2px;
-  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.1) ;
+  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.1);
+}
+
+.profile-picture-container {
+  margin-bottom: 1rem;
 }
 
 .img-context {
@@ -63,7 +67,7 @@ footer {
 .content {
   background-color: rgba(40, 44, 52,.5);
   backdrop-filter: blur(2px);
-  margin: 0;
+  margin: 0 0 2rem 0;
   border-style: dashed;
   border-color: #7fa2be;
   border-width: 3px;

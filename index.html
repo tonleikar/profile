@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,16 @@
     function videoToggle() {
       var x = document.getElementById("portfolio-video");
       x.classList.toggle('hidden');
-      }
+    }
   </script>
 </head>
+
 <body>
   <div class="container">
     <div class="header"></div>
     <div class="content">
       <div class="head">
-        <div>
+        <div class="profile-picture-container">
           <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="profile picture">
           <p class="img-context" style="text-align: center;"><em>*fred also pictured</em></p>
         </div>
@@ -28,35 +30,84 @@
           <h2>full_stack_dev</h2>
         </div>
       </div>
-      <p>I am a full stack developer, recently switching from videography into this new and exciting career! I combine my creativity and natural problem solving skills with my new tech building skills to come up with unique solutions.</p>
       <div class="buttons">
-        <a href="projects.html" class="link-button">projects</a>
-        <a href="cv.html" class="link-button">cv</a>
+        <a href="#about-section" class="link-button">about</a>
+        <a href="#projects-section" class="link-button">projects</a>
         <a onclick="videoToggle()" class="link-button">video-work</a>
       </div>
 
-      <div id="portfolio-video" class="hidden"><iframe src="https://www.youtube.com/embed/0dQ7-4x_m5k?si=SEGb9SDzL1EhbHcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div id="portfolio-video" class="hidden"><iframe
+          src="https://www.youtube.com/embed/0dQ7-4x_m5k?si=SEGb9SDzL1EhbHcU" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    </div>
+    <div id="about-section" class="header">
+      <h1>about</h1>
+    </div><div class="content">
+      <p>
+        I am a full stack developer, recently switching from videography into this new and exciting career! I combine
+        my creativity and natural problem solving skills with my new tech building skills to come up with unique
+        solutions.
+        <br><br>
+      </p>
+      <a href="cv.html" class="link-button">curriculum vitae</a>
+    </div>
+    <div id="projects-section">
+      <div class="header">
+        <h1>projects</h1>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/soccer.png" width="100" class="project-picture" alt="project picture">
+        <div class="project-info">
+          <h2>LeWagon Final Project</h2>
+          <p>A full-stack solution designed to streamline [Target Problem] by providing users with a seamless, intuitive
+            platform for [Primary Action]. This application bridges the gap between complex data management and
+            user-friendly design.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/cat.png" width="100" class="project-picture" alt="project picture">
+        <div class="project-info">
+          <h2>AI Project</h2>
+          <p>An intelligent, full-stack application that leverages machine learning to automate [Specific Task]. By
+            transforming raw data into actionable insights, this project demonstrates the bridge between traditional web
+            architecture and modern Artificial Intelligence integration.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/death.png" width="100" class="project-picture" alt="project picture">
+        <div class="project-info">
+          <h2>Death Clock</h2>
+          <p>This app will tell you when you will die. That is it, thats the app.</p>
+        </div>
+      </div>
+
     </div>
     <footer>
       <ul class="list-inline">
         <li>
           <a href="https://github.com/tonleikar" class="social-links">
-           <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
           </a>
         </li>
         <li>
           <a href="www.linkedin.com/in/sam-fgh" class="social-links">
-           <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/saltyknuckles_/" class="social-links">
-           <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-instagram"></i>
           </a>
         </li>
       </ul>
     </footer>
-      <p class="center-text" style="text-align: center; font-size: 12px;">© Samuel Gorman-Hailey 2026</p>
+    <p class="center-text" style="text-align: center; font-size: 12px;">© Samuel Gorman-Hailey 2026</p>
   </div>
 </body>
+
 </html>
