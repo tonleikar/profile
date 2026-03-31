@@ -51,14 +51,6 @@ li {
   margin-inline: 1em;
 }
 
-iframe {
-  display:block;
-  text-align: center;
-  margin: 0 auto;
-  width:100%;
-  height: 20rem;
-}
-
 .main-text {
   padding-block: 0;
   padding-left: 1rem;
@@ -68,20 +60,10 @@ iframe {
   display: none;
 }
 
-
-#portfolio-video {
-  margin-top: 2rem;
-  width: 960;
-}
-
-@media (max-width: 750px) {
+@media (max-width: 800px) {
   .container {
     width: 90%;
     min-width: 0;
-  }
-
-  .content {
-    padding: 24px;
   }
 
   .head {
@@ -106,41 +88,15 @@ iframe {
     gap: 0.75rem;
   }
 
-  .link-button {
-    display: block;
-    width: 80%;
-    box-sizing: border-box;
+  .profile-picture {
+    width: 60%;
   }
 
   .project {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 0.75rem;
-  }
-
-  .project-info {
-    display: contents;
-  }
-
-  .project h2 {
-    grid-column: 1;
-    grid-row: 1;
-    margin: 0;
-    width: 100%;
-  }
-
-  .project p {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 0;
-    width: 100%;
+    text-align: center;
   }
 
   .project-picture {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    max-width: 150px;
+    width: 60%;
   }
 }

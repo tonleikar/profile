@@ -11,10 +11,9 @@ body {
 }
 
 footer {
-  background-color: rgba(40, 44, 52,.5);
+  background-color: rgba(40, 44, 52, 0.3);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(3px);
-  /* padding: 0px 25px 25px 25px; */
   margin-top: 2rem;
   border-style: dashed;
   border-color: #7fa2be;
@@ -65,7 +64,7 @@ footer {
 }
 
 .content {
-  background-color: rgba(40, 44, 52,.5);
+  background-color: rgba(40, 44, 52, 0.3);
   backdrop-filter: blur(2px);
   margin: 0 0 2rem 0;
   border-style: dashed;
@@ -74,4 +73,6 @@ footer {
   box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.07) ;
   padding: 40px;
   transition: 1s;
+  justify-content: center;
+  align-items: center;
 }
