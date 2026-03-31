@@ -1,47 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sam-fgh</title>
-  <link rel="icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-  <style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Maitree:wght@200;300;400;500;600;700&display=swap');</style>
+  <link rel="icon" href="images/favicon.png?" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-  <main>
-    <div>
-      <h1>Hello, I'm Sam!</h1>
-      <img src="images/square-pp.jpeg" width="100" class="profile-picture">
-      <h2>full_stack_dev</h2>
-      <p>I am a full stack developer, recently switching from videography into this new and exciting career!</p>
-      <ul class="list-inline">
-        <li><a href="https://www.youtube.com/watch?v=0dQ7-4x_m5k" class="link-button">projects</a></li>
-        <li><a href="https://www.youtube.com/watch?v=0dQ7-4x_m5k" class="link-button">video-work</a></li>
-      </ul>
+  <div class="container">
+    <div class="header"></div>
+    <div class="content">
+      <div class="head">
+        <div class="profile-picture-container">
+          <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="profile picture">
+          <p class="img-context" style="text-align: center;"><em>*fred also pictured</em></p>
+        </div>
+        <div class="main-text">
+          <h1>Sam Gorman-Hailey</h1>
+          <br>
+          <h2>full_stack_dev</h2>
+          <br>
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="#about-section" class="link-button">about</a>
+        <a href="#projects-section" class="link-button">projects</a>
+        <a href="#contact-section" class="link-button">contact</a>
+      </div>
     </div>
-    <div class=div-no-padding">
-      <!-- <h3>Links</h3> -->
+    <div id="about-section" class="header">
+      <h1>about</h1>
+    </div><div class="content">
+      <p>
+        I am a full stack developer, recently switching from videography into this new and exciting career! I combine
+        my creativity and natural problem solving skills with my new tech building skills to come up with unique
+        solutions.
+        <br><br>
+      </p>
+      <a href="cv.html" class="link-button">curriculum vitae</a>
+    </div>
+    <div id="projects-section">
+      <div class="header">
+        <h1>projects</h1>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/waxxee.png" width="100" class="project-picture" alt="waxxee logo">
+        <div class="project-info">
+          <h2>WAXXEE</h2>
+          <p>
+            I lead a team of four to build an app called <em>'WAXXEE'</em>. This is a music discovery app based around real vinyl records, pulling from the discogs database.
+            The infinite record shop, we have endless sections for the user to explore. They can create their own sections or 'personas' as we call them which uses LLM integration
+            to create custom API calls with a descreiption and a cover image pulled from Unsplash. You can build a collection, follow your friends and get links to purchase the record from discogs.
+            This ended up becoming a real passion project for and something that I am continuing to work on and improve.
+          </p>
+          <br>
+          <a href="https://www.waxxee.com" target="_blank" class="link-button">waxxee</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/bard.png" width="80%" alt="screenshot of the bard app">
+        <div class="project-info">
+          <h2>bard</h2>
+          <p>
+            A different take on ad blocking. Instead of trying to skip the adverts completely this chrome extension simply mutes the audio, blurs the page and displays a sonnet for a moment of reflection.
+            When the advert is done playing the page is unmuted and the poem removed. Future updates will add options to pull from different sources for the text i.e. motivational quotes or good new articles.
+          </p>
+          <br>
+          <a href="https://github.com/tonleikar/bard" target="_blank" class="link-button">github repo</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="images/projects/StartupCopilot.png" width="100" class="project-picture" alt="startup copilot logo">
+        <div class="project-info">
+          <h2>Startup Copilot</h2>
+          <p>
+
+          </p>
+          <a href="https://startupcopilot-9e6010928028.herokuapp.com/" target="_blank" class="link-button">startupcopilot</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="contact-section">
+      <div class="header">
+        <h1>contact</h1>
+      </div>
+      <div class="content">
+        <p>
+          If you would like to get in touch, please reach out via email or through one of my social media platforms!
+        </p>
+        <br>
+        <div class="buttons">
+          <a href="mailto:sam.gormanhailey@pm.me" class="link-button">email</a>
+          <a href="www.linkedin.com/in/sam-fgh" class="link-button">linked in</a>
+        </div>
+    </div>
+  </div>
+    <footer>
       <ul class="list-inline">
         <li>
           <a href="https://github.com/tonleikar" class="social-links">
-           <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
           </a>
         </li>
         <li>
           <a href="www.linkedin.com/in/sam-fgh" class="social-links">
-           <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/saltyknuckles_/" class="social-links">
-           <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-instagram"></i>
           </a>
         </li>
       </ul>
-    </div>
-  </main>
+    </footer>
+    <p class="center-text" style="text-align: center; font-size: 12px;">© Samuel Gorman-Hailey 2026</p>
+  </div>
 </body>
+
 </html>
