@@ -1,0 +1,146 @@
+/* t pink */
+/* b6bd67 greeny yellow */
+/* 8abfb7 tealish */
+/* 7fa2be light blue */
+/* 282c34 dark blue */
+/* 1f1f1f darker blue */
+
+@import url("https://use.fontawesome.com/releases/v6.1.2/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Maitree:wght@200;300;400;500;600;700&display=swap');
+@import url("components/buttons.css");
+@import url("components/layouts.css");
+@import url("components/projects.css");
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  color: #cd6667;
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3, h4 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  color: #8abfb7;
+  margin: 0;
+  font-size: 18px;
+}
+
+p {
+  color: white;
+  font-family: "Maitree", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+}
+
+ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-inline: 1em;
+}
+
+iframe {
+  display:block;
+  text-align: center;
+  margin: 0 auto;
+  width:100%;
+  height: 20rem;
+}
+
+.main-text {
+  padding-block: 0;
+  padding-left: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+
+#portfolio-video {
+  margin-top: 2rem;
+  width: 960;
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 90%;
+    min-width: 0;
+  }
+
+  .content {
+    padding: 24px;
+  }
+
+  .head {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .main-text {
+    padding-left: 0;
+  }
+
+  .img-context {
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .link-button {
+    display: block;
+    width: 80%;
+    box-sizing: border-box;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 0.75rem;
+  }
+
+  .project-info {
+    display: contents;
+  }
+
+  .project h2 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    width: 100%;
+  }
+
+  .project p {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .project-picture {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: 150px;
+  }
+}
