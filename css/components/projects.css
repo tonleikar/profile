@@ -10,7 +10,8 @@
   padding: 20px;
   transition: 1s;
   display: flex;
-  align-items: center;
+  align-items: start;
+
 }
 
 .project-picture {

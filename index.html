@@ -8,12 +8,6 @@
   <link rel="icon" href="images/favicon.png?" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-    function videoToggle() {
-      var x = document.getElementById("portfolio-video");
-      x.classList.toggle('hidden');
-    }
-  </script>
 </head>
 
 <body>
@@ -27,20 +21,16 @@
         </div>
         <div class="main-text">
           <h1>Sam Gorman-Hailey</h1>
+          <br>
           <h2>full_stack_dev</h2>
+          <br>
         </div>
       </div>
       <div class="buttons">
         <a href="#about-section" class="link-button">about</a>
         <a href="#projects-section" class="link-button">projects</a>
-        <a onclick="videoToggle()" class="link-button">video-work</a>
+        <a href="#contact-section" class="link-button">contact</a>
       </div>
-
-      <div id="portfolio-video" class="hidden"><iframe
-          src="https://www.youtube.com/embed/0dQ7-4x_m5k?si=SEGb9SDzL1EhbHcU" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
     <div id="about-section" class="header">
       <h1>about</h1>
@@ -59,30 +49,41 @@
       </div>
 
       <div class="project">
-        <img src="images/projects/soccer.png" width="100" class="project-picture" alt="project picture">
+        <img src="images/projects/waxxee.png" width="100" class="project-picture" alt="waxxee logo">
         <div class="project-info">
-          <h2>LeWagon Final Project</h2>
-          <p>A full-stack solution designed to streamline [Target Problem] by providing users with a seamless, intuitive
-            platform for [Primary Action]. This application bridges the gap between complex data management and
-            user-friendly design.</p>
+          <h2>WAXXEE</h2>
+          <p>
+            I lead a team of four to build an app called <em>'WAXXEE'</em>. This is a music discovery app based around real vinyl records, pulling from the discogs database.
+            The infinite record shop, we have endless sections for the user to explore. They can create their own sections or 'personas' as we call them which uses LLM integration
+            to create custom API calls with a descreiption and a cover image pulled from Unsplash. You can build a collection, follow your friends and get links to purchase the record from discogs.
+            This ended up becoming a real passion project for and something that I am continuing to work on and improve.
+          </p>
+          <br>
+          <a href="https://www.waxxee.com" target="_blank" class="link-button">waxxee</a>
         </div>
       </div>
 
       <div class="project">
-        <img src="images/projects/cat.png" width="100" class="project-picture" alt="project picture">
+        <img src="images/projects/bard.png" width="80%" alt="screenshot of the bard app">
         <div class="project-info">
-          <h2>AI Project</h2>
-          <p>An intelligent, full-stack application that leverages machine learning to automate [Specific Task]. By
-            transforming raw data into actionable insights, this project demonstrates the bridge between traditional web
-            architecture and modern Artificial Intelligence integration.</p>
+          <h2>bard</h2>
+          <p>
+            A different take on ad blocking. Instead of trying to skip the adverts completely this chrome extension simply mutes the audio, blurs the page and displays a sonnet for a moment of reflection.
+            When the advert is done playing the page is unmuted and the poem removed. Future updates will add options to pull from different sources for the text i.e. motivational quotes or good new articles.
+          </p>
+          <br>
+          <a href="https://github.com/tonleikar/bard" target="_blank" class="link-button">github repo</a>
         </div>
       </div>
 
       <div class="project">
-        <img src="images/projects/death.png" width="100" class="project-picture" alt="project picture">
+        <img src="images/projects/StartupCopilot.png" width="100" class="project-picture" alt="startup copilot logo">
         <div class="project-info">
-          <h2>Death Clock</h2>
-          <p>This app will tell you when you will die. That is it, thats the app.</p>
+          <h2>Startup Copilot</h2>
+          <p>
+
+          </p>
+          <a href="https://startupcopilot-9e6010928028.herokuapp.com/" target="_blank" class="link-button">startupcopilot</a>
         </div>
       </div>
 
@@ -95,10 +96,12 @@
       <div class="content">
         <p>
           If you would like to get in touch, please reach out via email or through one of my social media platforms!
-          <br><br>
-          <a href="mailto:sam.gormanhailey@pm.me" class="link-button">email </a>
         </p>
-
+        <br>
+        <div class="buttons">
+          <a href="mailto:sam.gormanhailey@pm.me" class="link-button">email</a>
+          <a href="www.linkedin.com/in/sam-fgh" class="link-button">linked in</a>
+        </div>
     </div>
   </div>
     <footer>
