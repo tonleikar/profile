@@ -67,7 +67,7 @@
   background-color: rgb(153,153,153);
   padding: 6px;
   box-shadow: -2px -2px  0 2px rgb(171, 171,	171), 0px 0px 0 4px rgb(118,118,118), 2px 2px 0 6px rgb(50,50,50), -0px -0px 0 8px rgb(180,180,200);
-  transition: 1s;
+  transition: 0.3;
 }
 
 .skills:hover {
