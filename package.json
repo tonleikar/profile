@@ -1,0 +1,14 @@
+{
+  "name": "profile",
+  "version": "1.0.0",
+  "description": "Portfolio site for my dev work. All written in HTML and CSS by me. No AI.",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.185.1"
+  }
+}
