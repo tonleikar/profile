@@ -1,3 +1,5 @@
+import { initThreeScene } from './three-scene.js';
+
 const mybutton = document.getElementById("scrollBtn");
 const mouseFollow = document.getElementById("mouseFollow");
 const numCircles = 100;
@@ -74,3 +76,4 @@ function animate() {
 }
 
 animate();
+initThreeScene();

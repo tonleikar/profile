@@ -70,6 +70,12 @@ li {
   pointer-events: none;
 }
 
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 @media (max-width: 800px) {
   .container {
     width: 90%;
