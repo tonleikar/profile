@@ -15,6 +15,7 @@
 
 <body>
   <div id="mouseFollow"></div>
+  <div id="bg"></div>
   <div class="container">
     <button onclick="topFunction()" id="scrollBtn" title="Go to top">
       <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -218,7 +219,15 @@
     </footer>
     <p class="center-text" style="text-align: center; font-size: 12px;">© Samuel Gorman-Hailey 2026</p>
   </div>
-  <script src="src/index.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="src/index.js"></script>
 </body>
 
 </html>
