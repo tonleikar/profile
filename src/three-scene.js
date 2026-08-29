@@ -1,31 +1,48 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 
 
-export function initScene() {
+export async function initScene() {
 
-  //create scene
-  const loader = new GLTFLoader();
+  const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 20 );
+  camera.position.z = 2.5;
+
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+  const light = new THREE.AmbientLight(0xFFFFFF);
+  scene.add(light);
+
+  const loader = new OBJLoader();
+  const defaultMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("bg")
+    canvas: document.querySelector("#bg")
+  });
+  const cube = new THREE.Mesh(
+    new THREE.BoxGeometry(3, 6, 2),
+    defaultMaterial
+  );
+
+  // load object and add material
+  const sfgh = await loader.loadAsync( 'assets/sfgh.obj' );
+  sfgh.traverse((child) => {
+    if (child.isMesh) {
+      child.material = defaultMaterial;
+    }
   });
 
+  // add objects to scene
+  scene.add(sfgh);
 
-  // load in gltf mesh
-  loader.load( 'assets/sfgh-mesh.glb', function ( gltf ){
-    scene.add(gltf.scene);
-  }, undefined, function (error){
-    console.log('loader error: ' + error)
-  });
+  // add light
 
+  //set render properties
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // set renderer properties
-  renderer.setPixelRatio( window.devicePixelRatio);
-  renderer.setSize (window.innerWidth, window.innerHeight);
-
-  camera.position.setZ(30);
-
-  renderer.render( scene, camera );
+  // Render continuously every frame
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+  animate();
 }

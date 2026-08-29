@@ -76,4 +76,11 @@ function animate() {
 }
 
 animate();
-initScene();
+
+try {
+  await initScene();
+  console.log('three.js loaded');
+} catch (error) {
+  console.error(error);
+  console.log('three.js has not loaded correctly');
+}
