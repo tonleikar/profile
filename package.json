@@ -5,8 +5,5 @@
   "type": "module",
   "main": "src/index.js",
   "author": "Samuel Frederick Gorman-Hailey",
-  "license": "ISC",
-  "dependencies": {
-    "three": "^0.185.1"
-  }
+  "license": "ISC"
 }
