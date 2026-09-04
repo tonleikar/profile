@@ -93,7 +93,7 @@ li {
 
 #mouseFollow {
   position: fixed;
-  z-index: 2;
+  z-index: 1; /* above #grid-bg and #bg (0), below .container (2) */
   pointer-events: none;
 }
 

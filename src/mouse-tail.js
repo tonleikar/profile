@@ -1,6 +1,6 @@
 export function initMouseTail({
   container,
-  count = 100,
+  count = 50,
   size = 60,
   speed = 0.7
 }) {

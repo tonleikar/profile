@@ -1,4 +1,4 @@
-import { initMouseTail } from './mouse-tail.js';
+// import { initMouseTail } from './mouse-tail.js';
 import { initScrollToTop } from './scroll-to-top.js';
 import { initScene } from './three-scene.js';
 
@@ -6,9 +6,9 @@ initScrollToTop({
   button: document.querySelector('#scrollBtn')
 });
 
-initMouseTail({
-  container: document.querySelector('#mouseFollow')
-});
+// initMouseTail({
+//   container: document.querySelector('#mouseFollow')
+// });
 
 try {
   await initScene({
