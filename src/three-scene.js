@@ -8,12 +8,15 @@ export async function initScene({ canvas }) {
 
   const scene = new THREE.Scene();
 
-  const light = new THREE.AmbientLight(0xFFFFFF);
-  scene.add(light);
+  const topLight = new THREE.DirectionalLight(0xffffff); // (color, intensity)
+  topLight.position.set(500, 500, 500) //top-left-ish
+  topLight.castShadow = true;
+  scene.add(topLight);
 
   const loader = new OBJLoader();
-  const defaultMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-  const renderer = new THREE.WebGLRenderer({ canvas });
+  const defaultMaterial = new THREE.MeshBasicMaterial({ color: 0x009944 })
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  renderer.setClearColor(0x000000, 0);
 
   // load object and add material
   const sfgh = await loader.loadAsync( 'assets/sfgh.obj' );

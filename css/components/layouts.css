@@ -1,13 +1,23 @@
+html {
+  background-color: #1f1f1f;
+}
+
+#grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, #353535 1px, transparent 1px),
+    linear-gradient(to bottom, #353535 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 body {
   margin: 0;
   display: flex;
   justify-content: center;
-  background-size: 20px 20px;
-
-  background-color: #1f1f1f;
-  background-image:
-    linear-gradient(to right, #353535 1px, transparent 1px),
-    linear-gradient(to bottom, #353535 1px, transparent 1px);
+  background-color: transparent;
 }
 
 footer {
@@ -66,7 +76,7 @@ footer {
 
 .content {
   background-color: rgba(40, 44, 52, 0.3);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
   margin: 0 0 2rem 0;
   border-style: dashed;
   border-color: #7fa2be;
