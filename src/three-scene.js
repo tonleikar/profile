@@ -16,20 +16,19 @@ const FOV = 30;   // fairly long lens — keeps the wide word from fanning open 
 const FILL_FRACTION = 0.72;   // fraction of the binding viewport axis the word spans at rest
 const EDGE_MARGIN = 0.14;     // world units always kept between the letters and the screen edge
 
+// Each letter's own gentle, always-on wiggle. Not affected by scrolling.
 const IDLE = {
-  posAmp: 0.03,               // drift, world units
-  rotAmp: 0.07,               // tilt, radians
-  speed: 1.0
+  posAmp: 0.02,     // drift, world units
+  rotAmp: 0.05,     // tilt, radians
+  speed: 0.55       // tempo — lower is slower
 };
 
+// Scrolling leans the whole word: each scroll adds to its tilt, and the tilt
+// eases back to level whenever you stop — the decay is what gives it its "weight".
 const SCROLL = {
-  input: 0.0016,             // energy added per pixel scrolled
-  max: 1.6,                  // energy ceiling
-  decay: 0.92,               // per-frame energy falloff
-  gain: 1.8,                 // idle-amplitude multiplier at full energy
-  pitchGain: 6.0,            // whole-word pitch response to scroll
-  pitchMax: 0.10,            // hard cap on that pitch, radians
-  pitchDecay: 0.9
+  gain: 0.0006,     // radians of tilt added per pixel scrolled
+  decay: 2.0,       // how fast the tilt returns to level (per second) — lower = more lag / inertia
+  maxAngle: 0.4     // requested tilt limit, radians (also clamped to whatever keeps the word on screen)
 };
 
 export async function initScene({ canvas }) {
@@ -62,6 +61,7 @@ export async function initScene({ canvas }) {
   // ── Model ───────────────────────────────────────────────────────────────────
   // flatShading: the .glb ships with no materials and unreliable normals — deriving
   // per-face normals in the shader gives clean, even facets that suit the low-poly text.
+  // (Re-export from Blender with recalculated normals + smoothing to turn this off.)
   const material = new THREE.MeshStandardMaterial({
     color: COLOR.letters,
     roughness: 0.6,
@@ -93,7 +93,7 @@ export async function initScene({ canvas }) {
   });
   word.remove(gltf.scene);
 
-  // Centre each letter's geometry on its own origin so it can rotate about itself,
+  // Centre each letter's geometry on its own origin so it can wiggle about itself,
   // then move the mesh back to where the letter belongs.
   letters.forEach((mesh) => {
     mesh.geometry.computeBoundingBox();
@@ -102,26 +102,27 @@ export async function initScene({ canvas }) {
     mesh.position.copy(c);
   });
 
-  // Centre the whole word on the origin.
+  // Centre the whole word on the origin so it spins about its own middle.
   const wordBox = new THREE.Box3().setFromObject(word);
   const wordCentre = wordBox.getCenter(new THREE.Vector3());
   const wordSize = wordBox.getSize(new THREE.Vector3());
   const wordHalf = wordSize.clone().multiplyScalar(0.5);
   letters.forEach((mesh) => mesh.position.sub(wordCentre));
 
-  // Per-letter home state + reach (for the containment maths).
+  // Per-letter home state + how far its own wiggle-tilt can throw its far corner.
   const homes = letters.map((mesh) => {
     mesh.geometry.computeBoundingSphere();
     return {
       position: mesh.position.clone(),
-      radius: mesh.geometry.boundingSphere.radius
+      reach: mesh.geometry.boundingSphere.radius * IDLE.rotAmp
     };
   });
 
-  // ── Camera fit + containment box ────────────────────────────────────────────
-  // ampCap = how far a letter may travel from home on each axis before it would
-  // cross the screen edge. Recomputed on resize.
+  // ── Camera fit + containment ───────────────────────────────────────────────
+  // ampCap  = how far a letter may wiggle from home before it would cross the edge.
+  // maxSpin = largest whole-word rotation that still keeps every letter on screen.
   const ampCap = new THREE.Vector2();
+  let maxSpin = SCROLL.maxAngle;
 
   function layout() {
     const width = window.innerWidth;
@@ -143,12 +144,24 @@ export async function initScene({ canvas }) {
     const visHalfY = distance * vHalf;
     const visHalfX = visHalfY * aspect;
 
-    // reserve room for the whole-word pitch swing on the Y axis
-    const pitchReserveY = Math.sin(SCROLL.pitchMax) * (wordHalf.y + wordHalf.z);
+    // largest spin whose swung word still clears the top/bottom edge
+    const roomY = visHalfY - EDGE_MARGIN;
+    let safe = SCROLL.maxAngle;
+    while (safe > 0.02 &&
+           wordHalf.y * Math.cos(safe) + wordHalf.z * Math.sin(safe) > roomY) {
+      safe -= 0.02;
+    }
+    maxSpin = safe;
+
+    // room the spin already claims, so the per-letter wiggle stays inside what's left
+    const reserveY = Math.sin(maxSpin) * (wordHalf.y + wordHalf.z)
+                   + (1 - Math.cos(maxSpin)) * wordHalf.y;
+    const growth = distance / Math.max(0.001, distance - Math.sin(maxSpin) * wordHalf.z);
+    const reserveX = wordHalf.x * (growth - 1);
 
     ampCap.set(
-      Math.max(0, visHalfX - wordHalf.x - EDGE_MARGIN),
-      Math.max(0, visHalfY - wordHalf.y - EDGE_MARGIN - pitchReserveY)
+      Math.max(0, visHalfX - wordHalf.x - EDGE_MARGIN - reserveX),
+      Math.max(0, visHalfY - wordHalf.y - EDGE_MARGIN - reserveY)
     );
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -167,21 +180,14 @@ export async function initScene({ canvas }) {
     return;
   }
 
-  // ── Scroll energy ──────────────────────────────────────────────────────────
-  let scrollEnergy = 0;
-  let pitch = 0;
+  // ── Scroll → whole-word tilt ───────────────────────────────────────────────
+  let spin = 0;        // current whole-word rotation, radians
   let lastScrollY = window.scrollY;
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    const delta = y - lastScrollY;
+    spin = THREE.MathUtils.clamp(spin + (y - lastScrollY) * SCROLL.gain, -maxSpin, maxSpin);
     lastScrollY = y;
-    scrollEnergy = Math.min(scrollEnergy + Math.abs(delta) * SCROLL.input, SCROLL.max);
-    pitch = THREE.MathUtils.clamp(
-      pitch + delta * SCROLL.input * SCROLL.pitchGain,
-      -SCROLL.pitchMax,
-      SCROLL.pitchMax
-    );
   }, { passive: true });
 
   // ── Animation ──────────────────────────────────────────────────────────────
@@ -192,37 +198,28 @@ export async function initScene({ canvas }) {
   function update(dt) {
     elapsed += Math.min(dt, 0.1); // clamp so a resumed background tab can't jump the phase
     const t = elapsed * IDLE.speed;
-    const boost = 1 + scrollEnergy * SCROLL.gain;
 
+    // per-letter wiggle — constant, gentle, each letter slightly out of phase
     letters.forEach((mesh, i) => {
       const home = homes[i];
+      const capX = Math.max(0, ampCap.x - home.reach);
+      const capY = Math.max(0, ampCap.y - home.reach);
 
-      const rx = Math.sin(t * 0.60 + i * 1.3) * IDLE.rotAmp * boost;
-      const ry = Math.sin(t * 0.40 + i * 2.1) * IDLE.rotAmp * boost;
-      const rz = Math.sin(t * 0.50 + i * 3.0) * IDLE.rotAmp * 0.5 * boost;
-
-      // rotation swings a letter's far corner too — spend it from the same budget
-      const rotReach = home.radius * Math.max(Math.abs(rx), Math.abs(ry), Math.abs(rz));
-      const capX = Math.max(0, ampCap.x - rotReach);
-      const capY = Math.max(0, ampCap.y - rotReach);
-
-      const ox = THREE.MathUtils.clamp(
-        Math.sin(t * 0.35 + i * 1.9) * IDLE.posAmp * 0.7 * boost, -capX, capX
-      );
-      const oy = THREE.MathUtils.clamp(
-        Math.sin(t * 0.50 + i * 0.7) * IDLE.posAmp * boost, -capY, capY
-      );
+      const ox = THREE.MathUtils.clamp(Math.sin(t * 0.35 + i * 1.9) * IDLE.posAmp * 0.7, -capX, capX);
+      const oy = THREE.MathUtils.clamp(Math.sin(t * 0.50 + i * 0.7) * IDLE.posAmp, -capY, capY);
 
       mesh.position.set(home.position.x + ox, home.position.y + oy, home.position.z);
-      mesh.rotation.set(rx, ry, rz);
+      mesh.rotation.set(
+        Math.sin(t * 0.60 + i * 1.3) * IDLE.rotAmp,
+        Math.sin(t * 0.40 + i * 2.1) * IDLE.rotAmp,
+        Math.sin(t * 0.50 + i * 3.0) * IDLE.rotAmp * 0.5
+      );
     });
 
-    word.rotation.x = pitch;
-
-    scrollEnergy *= SCROLL.decay;
-    if (scrollEnergy < 5e-4) scrollEnergy = 0;
-    pitch *= SCROLL.pitchDecay;
-    if (Math.abs(pitch) < 2e-4) pitch = 0;
+    // whole-word tilt — eases back to level whenever scrolling stops
+    spin *= Math.exp(-SCROLL.decay * dt);
+    if (Math.abs(spin) < 1e-4) spin = 0;
+    word.rotation.x = spin;
   }
 
   function tick() {

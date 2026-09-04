@@ -182,16 +182,26 @@ three.js stays on the jsdelivr CDN, import map pinned to `three@0.185.1`.
 
 ## Built — status
 
-`src/three-scene.js` rewritten. Verified in-browser:
+`src/three-scene.js` rewritten. Verified in-browser.
 
-- All four letters **S F G H** render, lit, greeny-yellow, centred, spanning 72% of the
-  binding viewport axis.
-- Containment holds: idle drift ≈ ±0.02–0.03 world units; a sustained scroll pushes it to
-  ≈ ±0.08–0.12 plus ≤0.09 rad whole-word pitch, then eases back to idle. Zero
-  screen-edge violations even under continuous scroll hammering (each letter's offset is
-  hard-clamped to the safe box every frame).
-- Model normals in the `.glb` are unreliable → material uses `flatShading` for clean
-  even facets. `FOV = 30` (long lens) stops the wide word fanning open into its side walls.
+**Motion model (revised):**
+
+- **Each letter has its own slow, always-on wiggle** — small sine drift + tilt, each letter
+  slightly out of phase. Constant amplitude, not coupled to scrolling.
+- **Scrolling leans the whole word** as one object (`word.rotation.x`). Each scroll adds to
+  the tilt; the tilt eases back to level whenever you stop. The eased return is the
+  "inertia"/weight. Measured: a normal continuous scroll settles at ~15° tilt; a hard flick
+  reaches ~22° (just under the cap); after stopping it returns to level over ~2.5 s.
+- Containment: `maxSpin` is the configured tilt cap, further clamped down to whatever still
+  keeps the word inside the frustum; the per-letter wiggle is capped to the room the tilt
+  leaves. Zero screen-edge violations in testing (idle or scrolling).
+
+**Rendering:**
+
+- All four letters **S F G H**, lit, greeny-yellow, centred, spanning 72% of the binding
+  viewport axis.
+- `.glb` normals are unreliable → material uses `flatShading` for clean even facets. `FOV
+  = 30` (long lens) stops the wide word fanning open into its side walls.
 - Lighting: hemisphere (teal/dark) + warm key + light-blue fill + dim teal rim, ACES tone
   mapping. All colours are constants at the top of the file.
 - No console errors or three.js warnings.
@@ -204,17 +214,23 @@ three.js stays on the jsdelivr CDN, import map pinned to `three@0.185.1`.
 | `FILL_FRACTION` | how much of the screen the word spans at rest | `0.72` |
 | `FOV` | lens length — lower = flatter, less side-wall | `30` |
 | `EDGE_MARGIN` | guaranteed gap to the screen edge | `0.14` |
-| `IDLE.posAmp` / `IDLE.rotAmp` | resting drift / tilt size | `0.03` / `0.07` |
-| `IDLE.speed` | overall idle tempo | `1.0` |
-| `SCROLL.gain` | how much scrolling multiplies the idle motion | `1.8` |
-| `SCROLL.pitchMax` | max whole-word nod from scrolling (radians) | `0.10` |
-| `SCROLL.decay` / `SCROLL.pitchDecay` | how fast it settles after scrolling stops | `0.92` / `0.9` |
+| `IDLE.posAmp` / `IDLE.rotAmp` | per-letter wiggle drift / tilt size | `0.02` / `0.05` |
+| `IDLE.speed` | wiggle tempo — lower is slower | `0.55` |
+| `SCROLL.gain` | radians of whole-word tilt added per pixel scrolled | `0.0006` |
+| `SCROLL.decay` | how fast the tilt returns to level (per second); lower = more lag | `2.0` |
+| `SCROLL.maxAngle` | requested tilt cap, radians (also frustum-clamped) | `0.4` |
 
 ### Not yet judged (needs your eyes on the live page)
 
 - `FILL_FRACTION = 0.72` makes the word fairly dominant over the content behind it —
   drop toward `0.55–0.6` if it should read more as ambient background.
-- Motion amplitudes are set conservative; nudge `IDLE.*` / `SCROLL.gain` once you've
-  watched it scroll.
+- `SCROLL.maxAngle 0.4` (~23°) — reduce for a subtler lean, or raise `SCROLL.decay` to
+  make it snap back faster.
 - Couldn't observe live motion through automation (headless tabs freeze
-  `requestAnimationFrame`) — the numbers are verified, the feel isn't.
+  `requestAnimationFrame`) — the numbers are verified, the feel isn't. Watch it scroll.
+
+### If you want smooth (non-faceted) shading
+
+The `.glb`'s normals are broken, which is why `flatShading: true` is on. Re-export from
+Blender with **Recalculate Normals Outside** + smoothing, replace `assets/sfgh-mesh.glb`
+(same name), and set `flatShading: false`.
