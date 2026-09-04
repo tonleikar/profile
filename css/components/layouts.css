@@ -29,7 +29,7 @@ body {
 footer {
   background-color: rgba(var(--dark-blue-rgb), 0.3);
   backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(1px);
   margin-top: 2rem;
   padding: 16px;
 }
@@ -77,8 +77,8 @@ footer {
 }
 
 .content {
-  background-color: rgba(var(--dark-blue-rgb), 0.3);
-  backdrop-filter: blur(3px);
+  background-color: var(--dark-blue-rgba);
+  backdrop-filter: var(--blur);
   margin: 0 0 2rem 0;
   padding: 40px;
   justify-content: center;

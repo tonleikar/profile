@@ -17,12 +17,13 @@
   --greeny-yellow-bright: rgb(226, 232, 155);
   --tealish: #8abfb7;
   --light-blue: #7fa2be;
-  --dark-blue-rgb: 40, 44, 52;
+  --dark-blue-rgba: rgba(40, 44, 52, 0.7);
   --darker-blue: #1f1f1f;
   --darker-blue-rgb: 31, 31, 31;
   --grid-line: #353535;
   --glow-rgb: 240, 246, 173;
   --tail-rgb: 29, 161, 205;
+  --blur: blur(8px);
 }
 
 html {

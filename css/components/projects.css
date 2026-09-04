@@ -1,6 +1,6 @@
 .project {
-  background-color: rgba(var(--dark-blue-rgb), .5);
-  backdrop-filter: blur(2px);
+  background-color: var(--dark-blue-rgba);
+  backdrop-filter: var(--blur);
   margin: 0;
   margin-bottom: 2rem;
   padding: 2rem;
