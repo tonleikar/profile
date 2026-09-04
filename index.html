@@ -4,8 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sam-fgh</title>
+  <title>Sam Gorman-Hailey · full-stack developer</title>
+  <meta name="description" content="Portfolio of Sam Gorman-Hailey — full-stack software developer (Ruby on Rails, JavaScript, Python) with a decade in video production, now building accessible, well-designed web apps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samhailey.com/">
+  <meta property="og:title" content="Sam Gorman-Hailey · full-stack developer">
+  <meta property="og:description" content="Full-stack developer (Rails, JavaScript, Python) with a decade in video. Portfolio, projects and CV.">
+  <meta property="og:image" content="https://samhailey.com/images/square-pp.jpeg">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="images/favicon.png?" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/favicon.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -20,11 +28,11 @@
   <div class="container">
     <button id="scrollBtn" title="Go to top">
       <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z" fill="#b6bd67"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z" fill="currentColor"/>
       </svg>
     </button>
     <div class="header"></div>
-    <div class="content">
+    <div class="content panel">
       <div class="head">
         <div class="profile-picture-container">
           <img src="images/square-pp.jpeg" width="100" class="profile-picture" alt="Sam and his dog Fred">
@@ -47,32 +55,32 @@
 
     <div class="skills-section">
       <div class="header">
-        <h1>skills</h1>
+        <h2>skills</h2>
       </div>
-      <div class="content skills-container">
-        <div class="skills">Ruby</div>
-        <div class="skills">Rails</div>
-        <div class="skills">CSS</div>
-        <div class="skills">JavaScript</div>
-        <div class="skills">Python</div>
-        <div class="skills">HTML</div>
-        <div class="skills">SQL</div>
-        <div class="skills">postgreSQL</div>
-        <div class="skills">git</div>
-        <div class="skills">Adobe</div>
-        <div class="skills">Stimulus</div>
-        <div class="skills">Hotwire</div>
-        <div class="skills">Turbo</div>
-        <div class="skills">RESTful API</div>
-        <div class="skills">Heroku</div>
+      <ul class="content skills-container panel">
+        <li class="skills">Ruby</li>
+        <li class="skills">Rails</li>
+        <li class="skills">CSS</li>
+        <li class="skills">JavaScript</li>
+        <li class="skills">Python</li>
+        <li class="skills">HTML</li>
+        <li class="skills">SQL</li>
+        <li class="skills">postgreSQL</li>
+        <li class="skills">git</li>
+        <li class="skills">Adobe</li>
+        <li class="skills">Stimulus</li>
+        <li class="skills">Hotwire</li>
+        <li class="skills">Turbo</li>
+        <li class="skills">RESTful API</li>
+        <li class="skills">Heroku</li>
 
-      </div>
+      </ul>
     </div>
 
     <div id="about-section" class="header">
-      <h1>about</h1>
+      <h2>about</h2>
     </div>
-    <div class="content">
+    <div class="content panel">
       <p>
         Hello! My name is  Sam and I am a full-stack software developer specialising in building applications with Ruby on Rails, JavaScript, and Python.
         Working with computers and writing code has been a lifelong interest for me and I have finally decided to make
@@ -84,14 +92,19 @@
         people. I want to use my new technical skills along with my long held creative problem solving ability to help
         people and build digital solutions for organisations and individuals doing impactful work.
       </p>
-      <!-- <a href="cv.html" class="link-button">curriculum vitae</a> -->
+      <p>
+        After close to ten years working in video production, I am looking for my first role in the software
+        industry and am open to any software development position. I came out of my bootcamp as a full-stack
+        developer, but I lean towards the front end: I most enjoy user interaction, design and product.
+      </p>
+      <a href="assets/SFGH_CV_V2.pdf" target="_blank" class="link-button">curriculum vitae</a>
     </div>
     <div id="projects-section">
       <div class="header">
-        <h1>projects</h1>
+        <h2>projects</h2>
       </div>
 
-      <div class="project">
+      <div class="project panel">
         <img src="images/projects/waxxee.png" width="100" class="project-picture" alt="waxxee logo">
         <div class="project-info">
           <h2>WAXXEE</h2>
@@ -99,24 +112,24 @@
             I lead a team of four to build an app called <em>'WAXXEE'</em>. This is a music discovery app based around
             real vinyl records, pulling from the discogs database.
             The infinite record shop, we have endless sections for the user to explore. They can create their own
-            sections or 'personas' as we call them which uses LLM integration
-            to create custom API calls with a descreiption and a cover image pulled from Unsplash. You can build a
+            sections or 'personas' as we call them which use LLM integration
+            to create custom API calls with a description and a cover image pulled from Unsplash. You can build a
             collection, follow your friends and get links to purchase the record from discogs.
-            This ended up becoming a real passion project for and something that I am continuing to work on and improve.
+            This ended up becoming a real passion project for me, and something that I am continuing to work on and improve.
           </p>
         </div>
-        <div class="skills-container">
-          <div class="skills">Rails</div>
-          <div class="skills">JavaScript</div>
-          <div class="skills">postgreSQL</div>
-          <div class="skills">LLM</div>
-        </div>
+        <ul class="skills-container">
+          <li class="skills">Rails</li>
+          <li class="skills">JavaScript</li>
+          <li class="skills">postgreSQL</li>
+          <li class="skills">LLM</li>
+        </ul>
         <div class="buttons">
           <a href="https://www.waxxee.com" target="_blank" class="link-button">waxxee</a>
           <a href="https://www.linkedin.com/posts/sam-fgh_wwwwaxxeecom-is-a-project-that-i-lead-on-ugcPost-7445497907832832000-CFWS/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADe0q0sB2ysejHA9sZfdjLyFhBEHD7x42QQ" target="_blank" class="link-button" aria-label="Watch the WAXXEE video showcase on LinkedIn">video showcase</a>
         </div></div>
 
-      <div class="project">
+      <div class="project panel">
         <img src="images/projects/bard.png" class="project-picture bigger" alt="screenshot of the bard app">
         <div class="project-info">
           <h2>bard</h2>
@@ -124,61 +137,61 @@
             A different take on ad blocking. Instead of trying to skip the adverts completely this chrome extension
             simply mutes the audio, blurs the page and displays a sonnet for a moment of reflection.
             When the advert is done playing the page is unmuted and the poem removed. Future updates will add options to
-            pull from different sources for the text i.e. motivational quotes or good new articles.
+            pull from different sources for the text, e.g. motivational quotes or good news articles.
           </p>
         </div>
-        <div class="skills-container">
-          <div class="skills">JavaScript</div>
-          <div class="skills">Fetch API</div>
-        </div>
+        <ul class="skills-container">
+          <li class="skills">JavaScript</li>
+          <li class="skills">Fetch API</li>
+        </ul>
         <a href="https://github.com/tonleikar/bard" target="_blank" class="link-button">github repo</a>
       </div>
 
-      <div class="project">
+      <div class="project panel">
         <img src="images/projects/StartupCopilot.png" width="100" class="project-picture" alt="startup copilot logo">
         <div class="project-info">
           <h2>Startup Copilot</h2>
           <p>
-            I was part of a group project to build an app called 'Startup copilot'. I took ownership of one feature in
+            I was part of a group project to build an app called 'Startup Copilot'. I took ownership of one feature in
             particular which was the 'logo creator.' The user can upload a sketch idea for a logo. It would take all the
             info about the business
-            that had been decided on and generate a proffesional looking logo for the business based on those paramaters
-            and the drawing. To implement this I used two different llm models one to interpret the drawing and one to
+            that had been decided on and generate a professional-looking logo for the business based on those parameters
+            and the drawing. To implement this I used two different LLM models, one to interpret the drawing and one to
             generate the image.
-            This was then uploaded to cloudinary and linked to the business profile.
+            This was then uploaded to Cloudinary and linked to the business profile.
           </p>
         </div>
-        <div class="skills-container">
-          <div class="skills">Rails</div>
-          <div class="skills">Stimulus</div>
-          <div class="skills">Google Gemini</div>
-          <div class="skills">OpenAI</div>
-          <div class="skills">Cloudinary</div>
-        </div>
+        <ul class="skills-container">
+          <li class="skills">Rails</li>
+          <li class="skills">Stimulus</li>
+          <li class="skills">Google Gemini</li>
+          <li class="skills">OpenAI</li>
+          <li class="skills">Cloudinary</li>
+        </ul>
         <a href="https://startupcopilot-9e6010928028.herokuapp.com/" target="_blank"
           class="link-button">startupcopilot</a>
       </div>
 
-      <div class="project">
+      <div class="project panel">
         <img src="images/projects/sfh logo.png" width="100" class="project-picture" alt="SFH Videography logo">
         <div class="project-info">
           <h2>Videography</h2>
           <p>
             I have worked as a videographer for close to ten years. I have vast amounts of experience in the full Adobe Suite,
-            operation of many types of cameras from mirrorless to cinema cameras. Along with this I have a drone liscence and
-            have operatered a gimbal on a travel show on Channel 5 'Alexander Armstron in Sri Lanka'. I have taken all of this
-            creative experience and tech skills into my new career of software developement. In particular my motion graphics
-            expereience I have found to be useful when working on UI/UX of applications, in terms of layout and also 'feel' of
+            operation of many types of cameras from mirrorless to cinema cameras. Along with this I have a drone licence and
+            have operated a gimbal on a travel show on Channel 5 'Alexander Armstrong in Sri Lanka'. I have taken all of this
+            creative experience and tech skills into my new career of software development. In particular my motion graphics
+            experience I have found to be useful when working on UI/UX of applications, in terms of layout and also 'feel' of
             the animations.
           </p>
         </div>
-        <div class="skills-container">
-          <div class="skills">After Effects</div>
-          <div class="skills">Premiere Pro</div>
-          <div class="skills">Photoshop</div>
-          <div class="skills">Blender</div>
-          <div class="skills">DIT</div>
-        </div>
+        <ul class="skills-container">
+          <li class="skills">After Effects</li>
+          <li class="skills">Premiere Pro</li>
+          <li class="skills">Photoshop</li>
+          <li class="skills">Blender</li>
+          <li class="skills">DIT</li>
+        </ul>
         <a href="https://samhailey.wixsite.com/website-1" target="_blank" class="link-button">video-work</a>
       </div>
 
@@ -186,34 +199,34 @@
 
     <div id="contact-section">
       <div class="header">
-        <h1>contact</h1>
+        <h2>contact</h2>
       </div>
-      <div class="content">
+      <div class="content panel">
         <p>
           If you would like to get in touch, please reach out via email or through one of my social media platforms!
         </p>
         <br>
         <div class="buttons">
           <a href="mailto:sam.gormanhailey@pm.me" class="link-button">email</a>
-          <a href="www.linkedin.com/in/sam-fgh" class="link-button">linkedin</a>
+          <a href="https://www.linkedin.com/in/sam-fgh" class="link-button">linkedin</a>
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="panel">
       <ul class="list-inline">
         <li>
           <a href="https://github.com/tonleikar" class="social-links" aria-label="GitHub Profile">
-            <i class="fa-brands fa-github"></i>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/sam-fgh" class="social-links" aria-label="LinkedIn Profile">
-            <i class="fa-brands fa-linkedin-in"></i>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/saltyknuckles_/" class="social-links" aria-label="Instagram account">
-            <i class="fa-brands fa-instagram"></i>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
         </li>
       </ul>

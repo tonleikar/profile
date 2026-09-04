@@ -38,9 +38,13 @@ export async function initScene({ canvas }) {
   window.addEventListener('resize', resize);
   resize();
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function animate() {
-    requestAnimationFrame(animate);
     renderer.render(scene, camera);
+    if (!prefersReducedMotion) {
+      requestAnimationFrame(animate);
+    }
   }
   animate();
 }

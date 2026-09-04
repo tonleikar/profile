@@ -3,12 +3,12 @@
   font-weight: 500;
   font-style: normal;
   text-align: center;
-  color: #b6bd67;
+  color: var(--greeny-yellow);
   text-decoration: none;
   border-style: dashed;
-  border-color: #b6bd67;
+  border-color: var(--greeny-yellow);
   border-width: 2px;
-  background-color: #1f1f1f;
+  background-color: var(--darker-blue);
   padding: 10px;
   transition: 0.3s;
   box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.0) ;
@@ -20,9 +20,9 @@
 }
 
 .link-button:hover {
-  border-color: rgb(226, 232, 155);
-  background-color: rgb(31, 31, 31);
-  box-shadow: 1px 1px 10px 5px rgba(240, 246, 173, 0.1) ;
+  border-color: var(--greeny-yellow-bright);
+  background-color: var(--darker-blue);
+  box-shadow: 1px 1px 10px 5px rgba(var(--glow-rgb), 0.1) ;
 }
 
 .buttons {
@@ -33,13 +33,21 @@
 }
 
 .social-links {
-  color: #b6bd67;
+  color: var(--greeny-yellow);
   font-size: 20px;
   transition: 0.3s;
   text-align: center;
   position: relative;
+  display: inline-block;
   padding: 0;
   margin: 1rem;
+}
+
+.social-links svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: block;
 }
 
 .social-links:hover{
@@ -51,6 +59,7 @@
 }
 
 .skills-container {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -66,6 +75,7 @@
   font-weight: 800;
   background-color: rgb(153,153,153);
   padding: 6px;
+  margin: 0;
   box-shadow: -2px -2px  0 2px rgb(171, 171,	171), 0px 0px 0 4px rgb(118,118,118), 2px 2px 0 6px rgb(50,50,50), -0px -0px 0 8px rgb(180,180,200);
   transition: 0.3;
 }
@@ -88,19 +98,19 @@
   font-weight: 500;
   font-style: normal;
   text-align: center;
-  color: #b6bd67;
+  color: var(--greeny-yellow);
   text-decoration: none;
   border-style: dashed;
-  border-color: #b6bd67;
+  border-color: var(--greeny-yellow);
   border-width: 2px;
-  background-color: rgba(31, 31, 31, 0.5);
+  background-color: rgba(var(--darker-blue-rgb), 0.5);
   padding: 10px;
   transition: 0.3s;
   box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.0) ;
 }
 
 #scrollBtn:hover {
-  border-color: rgb(226, 232, 155);
-  background-color: rgb(31, 31, 31);
-  box-shadow: 1px 1px 10px 5px rgba(240, 246, 173, 0.1) ;
+  border-color: var(--greeny-yellow-bright);
+  background-color: var(--darker-blue);
+  box-shadow: 1px 1px 10px 5px rgba(var(--glow-rgb), 0.1) ;
 }

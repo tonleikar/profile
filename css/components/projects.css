@@ -1,12 +1,8 @@
 .project {
-  background-color: rgba(40, 44, 52,.5);
+  background-color: rgba(var(--dark-blue-rgb), .5);
   backdrop-filter: blur(2px);
   margin: 0;
   margin-bottom: 2rem;
-  border-style: dashed;
-  border-color: #7fa2be;
-  border-width: 3px;
-  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.07) ;
   padding: 2rem;
 }
 
@@ -16,11 +12,11 @@
   max-width: 300px;
   width:50%;
   padding: 5px;
-  border-color: #b6bd67;
+  border-color: var(--greeny-yellow);
   border-width: 2px;
   border-style: dashed;
   border-radius: 2px;
-  box-shadow: 1px 1px 25px 1px rgba(240, 246, 173, 0.1) ;
+  box-shadow: 1px 1px 25px 1px rgba(var(--glow-rgb), 0.1) ;
 }
 
 .project-picture.bigger {
@@ -41,14 +37,4 @@
 
 .project-info {
   margin-block: 1rem;
-}
-
-.tools {
-  display: flex;
-}
-
-.tool {
-  background-color: grey;
-  color: rgb(34, 34, 34);
-  border: 4px solid rgb(34, 34, 34);
 }

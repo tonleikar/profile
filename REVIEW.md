@@ -63,14 +63,10 @@ shows through, and swaps ambient light for a directional light.
   `sfh logo.png` 489 KB, `StartupCopilot.png` 427 KB, `waxxee.png` 355 KB, CV PNG
   303 KB. Resize to display size, compress, serve WebP, add `width`/`height`
   attributes to prevent layout shift, and `loading="lazy"` on below-the-fold images.
-- [ ] **You ship a 252 KB `sfgh.obj` when a 73 KB `sfgh-mesh.glb` already exists** in
-  `assets/`. Use `GLTFLoader` + the glb — smaller and faster to parse.
 - [ ] **Font Awesome is `@import`-ed as the entire icon CSS for 3 icons**, and
   `@import` blocks rendering. Inline 3 SVGs and drop the dependency.
 - [ ] **Google Fonts request pulls every weight + italic** of IBM Plex Mono and
   Maitree. Trim to the 2–3 weights actually used.
-- [ ] Reconsider whether the 3D background is worth its total cost (three.js module +
-  loader + model) versus just the CSS grid + a static render.
 
 ### Accessibility & polish
 
@@ -99,9 +95,3 @@ shows through, and swaps ambient light for a directional light.
   across `.content`, `.project`, `footer`, `.profile-picture`. Extract a `.panel` class.
 - [ ] `.tools` / `.tool` in `projects.css` are dead (replaced by `.skills`).
 - [ ] Add `apple-touch-icon` and a couple of favicon sizes.
-
-### On the README TODO
-
-- [ ] "Add click sound on hover of buttons" — skip this. Hover/click sounds on a
-  website are almost universally disliked and will annoy the recruiters you want to
-  impress.

@@ -4,6 +4,14 @@ export function initMouseTail({
   size = 60,
   speed = 0.7
 }) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // decorative only — skip on reduced-motion and on touch / coarse-pointer devices
+  if (prefersReducedMotion || !hasFinePointer) {
+    return;
+  }
+
   const pointer = { x: 0, y: 0 };
   const circles = [];
 
