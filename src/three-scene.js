@@ -13,13 +13,13 @@ const COLOR = {
 };
 
 const FOV = 120;   // fairly long lens — keeps the wide word from fanning open into its side walls
-const FILL_FRACTION = 0.72;   // fraction of the binding viewport axis the word spans at rest
-const EDGE_MARGIN = 0.14;     // world units always kept between the letters and the screen edge
+const FILL_FRACTION = 0.82;   // fraction of the binding viewport axis the word spans at rest
+const EDGE_MARGIN = 0.3;     // world units always kept between the letters and the screen edge
 
 // Each letter's own gentle, always-on wiggle. Not affected by scrolling.
 const IDLE = {
   posAmp: 0.12,     // drift, world units
-  rotAmp: 0.15,     // tilt, radians
+  rotAmp: 0.45,     // tilt, radians
   speed: 0.55       // tempo — lower is slower
 };
 
@@ -28,7 +28,7 @@ const IDLE = {
 const SCROLL = {
   gain: 0.0006,     // radians of tilt added per pixel scrolled
   decay: 2.0,       // how fast the tilt returns to level (per second) — lower = more lag / inertia
-  maxAngle: 0.4     // requested tilt limit, radians (also clamped to whatever keeps the word on screen)
+  maxAngle: 5.0     // requested tilt limit, radians (also clamped to whatever keeps the word on screen)
 };
 
 export async function initScene({ canvas }) {
